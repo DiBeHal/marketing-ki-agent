@@ -27,11 +27,11 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # --------------------------------------
-# 6) Expose Port für Railway
+# 6) Railway erwartet Port 8080 exposed
 # --------------------------------------
 EXPOSE 8080
 
 # --------------------------------------
-# 7) Start-Kommando über launch.sh (Streamlit & FastAPI)
+# 7) Start-Kommando für FastAPI + Streamlit
 # --------------------------------------
 CMD ["bash", "launch.sh"]
