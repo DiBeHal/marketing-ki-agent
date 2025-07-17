@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  agent:
+    build:
+      context: .
+    container_name: marketing-ki-agent
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - qdrant
+      - browserless   # ✅ NEU
+
+  browserless:
+    image: browserless/chrome
+    container_name: browserless
+    ports:
+      - "3000:3000"
+    environment:
+      - PREBOOT_CHROME=true
+      - CONNECTION_TIMEOUT=300000
+      - MAX_CONCURRENT_SESSIONS=10
+
+volumes:
+  qdrant_storage:

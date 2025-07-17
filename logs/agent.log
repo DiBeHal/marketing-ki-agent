@@ -1,0 +1,13 @@
+2025-07-17 13:16:21.305 | INFO     | __main__:store_results_locally_and_upload:25 - 📄 Ergebnis lokal gespeichert: data/results_20250717_111621.json
+2025-07-17 13:16:23.864 | INFO     | __main__:store_results_locally_and_upload:29 - ✅ Ergebnis in S3 hochgeladen: results/results_20250717_111621.json
+2025-07-17 13:18:39.786 | INFO     | __main__:scrape_and_upload:12 - 🌐 Starte Scrape: https://example.com
+2025-07-17 13:18:39.786 | INFO     | __main__:scrape_and_upload:12 - 🌐 Starte Scrape: https://example.com
+2025-07-17 13:18:40.394 | INFO     | __main__:scrape_and_upload:25 - 🔎 Gefundene Überschriften: ['Example Domain']
+2025-07-17 13:18:40.394 | INFO     | __main__:scrape_and_upload:25 - 🔎 Gefundene Überschriften: ['Example Domain']
+2025-07-17 13:18:40.397 | INFO     | pipeline_upload:store_results_locally_and_upload:25 - 📄 Ergebnis lokal gespeichert: data/scraper_20250717_111840.json
+2025-07-17 13:18:40.397 | INFO     | pipeline_upload:store_results_locally_and_upload:25 - 📄 Ergebnis lokal gespeichert: data/scraper_20250717_111840.json
+2025-07-17 13:18:41.700 | INFO     | pipeline_upload:store_results_locally_and_upload:29 - ✅ Ergebnis in S3 hochgeladen: scraper/scraper_20250717_111840.json
+2025-07-17 13:18:41.700 | INFO     | pipeline_upload:store_results_locally_and_upload:29 - ✅ Ergebnis in S3 hochgeladen: scraper/scraper_20250717_111840.json
+2025-07-17 13:25:42.374 | INFO     | __main__:<module>:19 - 🚀 Scheduler läuft… (Ctrl+C zum Beenden)
+2025-07-17 13:25:42.374 | INFO     | __main__:<module>:19 - 🚀 Scheduler läuft… (Ctrl+C zum Beenden)
+2025-07-17 13:25:42.374 | INFO     | __main__:<module>:19 - 🚀 Scheduler läuft… (Ctrl+C zum Beenden)

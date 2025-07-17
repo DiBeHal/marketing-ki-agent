@@ -1,0 +1,8 @@
+kunde_1:
+  - https://example.com
+  - https://www.wikipedia.org
+  - js-heavy|https://www.nike.com
+
+kunde_2:
+  - https://www.python.org       # Normale HTML-Seite
+  - https://www.nike.com         # JS-heavy Seite ➜ Playwright testen
