@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "🚀 Starte Marketing KI Agent..."
+# Starte FastAPI im Hintergrund
+uvicorn main:app --host 0.0.0.0 --port 8000 &
 
-# Falls du später FastAPI willst, tausche einfach den unteren Befehl
-streamlit run streamlit_app.py --server.port 8000 --server.address 0.0.0.0
+# Starte Streamlit im Vordergrund auf Port 8080 (wichtig für Railway)
+streamlit run streamlit_app.py --server.port=8080 --server.enableCORS=false

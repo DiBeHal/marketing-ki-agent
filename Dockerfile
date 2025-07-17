@@ -27,19 +27,11 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # --------------------------------------
-# 6) .env über docker-compose.yml laden
-# Kein COPY hier nötig!
+# 6) Expose Port für Railway
 # --------------------------------------
+EXPOSE 8080
 
 # --------------------------------------
-# 7) Start-Kommando
+# 7) Start-Kommando über launch.sh (Streamlit & FastAPI)
 # --------------------------------------
-
-# === Option A: main.py testen ===
-# CMD ["python", "main.py"]
-
-# === Option B: FastAPI starten ===
-CMD ["uvicorn", "agent.api:app", "--host", "0.0.0.0", "--port", "8000"]
-
-# === Option C: Streamlit starten ===
-# CMD ["streamlit", "run", "streamlit_app.py", "--server.port", "8000", "--server.address", "0.0.0.0"]
+CMD ["bash", "launch.sh"]
