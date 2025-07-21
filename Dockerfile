@@ -27,9 +27,9 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # --------------------------------------
-# 6) Railway erwartet Port 8080 exposed
+# 6) Railway erwartet Port 8000 exposed
 # --------------------------------------
-EXPOSE 8080
+EXPOSE 8000
 
 # --------------------------------------
 # 7) Start-Kommando für FastAPI + Streamlit
