@@ -23,6 +23,7 @@ python-docx==0.8.11  # DOCX
 lxml  # Dependency für python-docx
 bs4
 readability
+readability-lxml
 
 # ----------------------------------------
 # 📊 Pipelines & Daten

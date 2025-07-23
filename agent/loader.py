@@ -2,7 +2,7 @@
 import fitz  # PyMuPDF
 from bs4 import BeautifulSoup
 import requests
-from readability import Document
+from readability.readability import Document
 from docx import Document as DocxDocument
 
 
