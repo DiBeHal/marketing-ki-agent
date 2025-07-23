@@ -12,7 +12,9 @@ WORKDIR /app
 # 3) System-Updates & System-Abhängigkeiten
 # --------------------------------------
 RUN apt-get update && \
-    apt-get install -y build-essential && \
+    apt-get install -y build-essential curl gnupg && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
 
 # --------------------------------------

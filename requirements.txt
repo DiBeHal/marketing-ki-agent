@@ -21,6 +21,8 @@ playwright  # für Browserless in scrape_competitors.py
 PyMuPDF  # PDF
 python-docx==0.8.11  # DOCX
 lxml  # Dependency für python-docx
+bs4
+readability
 
 # ----------------------------------------
 # 📊 Pipelines & Daten

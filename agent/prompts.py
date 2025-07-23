@@ -3,21 +3,33 @@
 # ===== Cluster 1: Content & Wettbewerb =====
 
 content_briefing_prompt = """
-Du bist ein erfahrener Content-Stratege. Analysiere den folgenden Inhalt und erstelle ein kompaktes, strukturiertes Content-Briefing.
+Du bist ein Content-Stratege. Erstelle ein strukturiertes Briefing für eine Content-Kampagne.
 
 Ziele:
 - Zielgruppe und Tonalität erkennen
-- Hauptbotschaften herausarbeiten
-- Content-Ziele vermuten
+- Hauptbotschaften erfassen
+- Themenideen vorschlagen
 
-Text:
+Text oder Website-Inhalt:
 {context}
 
 Antwortstruktur:
-- 🎯 Zielgruppe:
-- 💬 Hauptbotschaften:
-- 🎵 Tonalität:
-- 📈 Content-Ziele:
+- 🌟 Zielgruppe:
+- 💬 Tonalität:
+- 🔑 Hauptbotschaften:
+- 🧠 Themenvorschläge (Bullet Points):
+"""
+
+content_write_prompt = """
+Du bist Texter. Schreibe einen Artikel zum folgenden Thema, abgestimmt auf die Zielgruppe und in passender Tonalität.
+
+Zielgruppe: {zielgruppe}
+Tonalität: {tonalitaet}
+Thema: {thema}
+
+Länge: ca. 300–500 Wörter.
+
+Antwort:
 """
 
 competitive_analysis_prompt = """
@@ -58,23 +70,27 @@ Antwortstruktur:
 - 🔗 Call to Action:
 """
 
-landingpage_strategy_prompt = """
-Du bist UX-Berater für Landingpages. Analysiere den folgenden Mitbewerbertext und entwickle eine differenzierte eigene Strategie.
+landingpage_strategy_contextual_prompt = """
+Du bist Landingpage-Experte. Deine Aufgabe ist es, eine bestehende Landingpage zu analysieren und eine verbesserte Strategie dafür zu entwickeln – unter Einbezug vorliegender Analysen.
 
-Ziele:
-- Struktur und Aufbau ableiten
-- Kommunikationsstil und CTA optimieren
+📄 Aktueller Inhalt der Landingpage:
+{context_website}
 
-Mitbewerbertext:
-{context}
+📅 Weitere relevante Analysen (Wettbewerb, Kampagne etc.):
+{context_anhang}
+
+Ziel: Eine optimierte, differenzierte Strategie für die eigene Website.
 
 Antwortstruktur:
-- 🧭 Seitenstruktur (Abschnitte):
-- 👥 Zielgruppenansprache:
-- 🗣️ Stil & Sprache:
-- 💡 USPs & Nutzenversprechen:
-- 🔗 Conversion-Elemente (CTA, Trust, UX):
-- 🛠 Optimierungsideen:
+- 🧭 Neue Seitenstruktur (Abschnitte + Funktion):
+- 💬 Kommunikationsstil & Sprache:
+- 🧠 Hauptbotschaft & USPs:
+- 🔗 Conversion-Elemente & Trust (inkl. Platzierung):
+- 🛠 Technische & UX-Optimierungsideen:
+- 📈 Ergänzende Inhalte/Assets (mit Zweck):
+- ✍️ Beispieltext für neue Startseite (strukturiert in Abschnitte):
+- 🖼️ Asset-Vorschläge (z. B. Visuals, Icons, Videos – passend zum Textinhalt):
+- 🤖 Bonus: LLM/AIO/AEO-Optimierungsideen:
 """
 
 # ===== Cluster 3: SEO Inhalte =====
@@ -94,9 +110,9 @@ Text:
 
 Antwortstruktur:
 - 🔍 Verwendete Keywords:
-- 🏗️ Struktur:
-- 📝 Meta-Titel & Beschreibung:
-- 🎯 CTAs:
+- 🏧 Struktur:
+- 📜 Meta-Titel & Beschreibung:
+- 🌟 CTAs:
 - 📚 Lesbarkeit:
 - 🧠 Verbesserungsideen:
 """
@@ -130,31 +146,71 @@ Antwortstruktur:
 # ===== Cluster 5: Reports & Maßnahmen =====
 
 monthly_report_prompt = """
-Du bist strategischer Marketingberater. Erstelle einen Monatsreport basierend auf dem folgenden Kontext.
+Du bist strategischer Marketingberater. Erstelle auf Basis der folgenden Inhalte einen professionellen Monatsreport.
 
 Ziele:
-- Leistungen und Ergebnisse zusammenfassen
-- Empfehlungen für nächsten Monat ableiten
+- Ergebnisse aus verschiedenen Subfunktionen zusammenführen (Audit, Kampagnen, SEO, Wettbewerbsvergleich etc.)
+- Maßnahmen reflektieren
+- Empfehlungen & Fokusbereiche für den nächsten Monat formulieren
 
-Kontext:
+Kontext (Text, Website, hochgeladene PDFs etc.):
 {context}
 
 Antwortstruktur:
-- 📌 Monatszusammenfassung:
-- 📊 Erkenntnisse:
-- 🧠 Empfehlungen:
-- 🚀 Fokus für den nächsten Monat:
+📌 Monatszusammenfassung:
+(Kurzüberblick über relevante Entwicklungen, z. B. Reichweite, Leads, SEO-Erfolge, lokale Maßnahmen)
+
+📊 Erkenntnisse & Daten:
+(Was hat funktioniert, was nicht? Was zeigt sich aus SEO-, Kampagnen- oder Wettbewerbsdaten?)
+
+🧠 Empfehlungen für nächste Schritte:
+(Klar priorisierte To-Dos aus dem Mix aller Subfunktionen – Website, Inhalte, Kanäle, Ads etc.)
+
+🌟 Fokus für nächsten Monat:
+(Fokusziele, geplante Ressourcen, Roadmap – inkl. lokaler oder saisonaler Anlässe)
+
+📍 Lokaler Kontext (optional):
+(Einbindung von Events, Koops, Offline-Ideen)
+
+🤖 Bonus: KI-Einsatz / Automatisierungsideen:
+(Was könnte durch KI unterstützt oder getestet werden?)
 """
 
 tactical_actions_prompt = """
-Du bist Kampagnenmanager. Leite aus dem Kontext konkrete, umsetzbare Marketingmaßnahmen ab.
+Du bist strategischer Marketingplaner. Entwickle einen umfassenden Maßnahmenplan auf Basis des folgenden Kontexts, der frühere Analysen (z. B. SEO-Audits, Wettbewerbsvergleiche, Kampagnenpläne) berücksichtigen kann.
+
+Ziele:
+- Sofort umsetzbare Maßnahmen sowie mittelfristige und langfristige Ziele
+- Fokus auf lokale Maßnahmen für Einzelhandelsgeschäfte
+- Einbindung von Offline-Komponenten (z. B. Flyer, Events)
+- Integration von KI in Prozesse und Kampagnen
+- SWOT-Analyse am Ende zur strategischen Verankerung
 
 Kontext:
 {context}
 
 Antwortstruktur:
-- ✅ Sofort umsetzbare Maßnahmen:
-- 🎯 Mittelfristige Aktionen:
-- 🛠 Kanäle & Formate:
-- 📌 Ziel und Nutzen:
+✅ Sofort umsetzbare Maßnahmen:
+(z. B. Quick Wins aus Analyse, lokale Aktionen, gezielte Website-Optimierungen)
+
+🌟 Mittelfristige Aktionen (1–3 Monate):
+(z. B. geplante Kampagnen, neue Content-Formate, lokale Events)
+
+🚀 Langfristige Maßnahmen (3+ Monate):
+(z. B. Positionierung, Markenaufbau, Automatisierungen mit KI)
+
+📍 Lokale Maßnahmen:
+(z. B. Standort-Marketing, Kooperationen, Event-Ideen, lokales Sponsoring)
+
+📰 Offline-Materialien:
+(z. B. Flyer-Texte, Broschürenideen, Direktmarketing)
+
+🤖 KI-Integration & Automatisierung:
+(z. B. automatisierte Newsletter, KI-gestützte Kundenkommunikation, A/B-Test-Generator)
+
+🧠 SWOT-Analyse:
+- Stärken:
+- Schwächen:
+- Chancen:
+- Risiken:
 """
